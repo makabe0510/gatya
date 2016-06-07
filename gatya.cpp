@@ -6,27 +6,13 @@
 #include "SSR_list.h"
 #include "SR_list.h"
 #include "R_list.h"
+#include "meta.h"
 #include <vector>
 
 using namespace std;
 
 int count=0,flag=-1,SSRcount=0;
 vector<int> check(50,0);
-
-#define jewel8400 9800
-#define jewel4200 5000
-#define jewel2650 3200
-#define jewel1300 1600
-#define jewel760 960
-#define jewel360 480
-#define jewel60 120
-#define money9800 8400
-#define money5000 4200
-#define money3200 2650
-#define money1600 1300
-#define money960 760
-#define money480 360
-#define money120 60
 
 void *list(int,char*);
 void *write(int,int,char*);
@@ -96,15 +82,15 @@ void *write(int num,int rarity,char *str){
   int i;
   switch(rarity){
   case 0:
-    i=rand()%71;
+    i=rand()%R_num;
     strcpy(str,R_list[i]);
     break;
   case 1:
-    i=rand()%54;
+    i=rand()%SR_num;
     strcpy(str,SR_list[i]);
     break;
   case 2:
-    i=rand()%27;
+    i=rand()%SSR_num;
     strcpy(str,SSR_list[i]);
     flag=i;
     check[i]+=1;
